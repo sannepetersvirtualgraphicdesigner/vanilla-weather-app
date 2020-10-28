@@ -9,6 +9,10 @@
       integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2"
       crossorigin="anonymous"
     />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
     <link rel="stylesheet" href="src/style.css" />
     <title>Vanilla Weather App</title>
   </head>
@@ -19,18 +23,19 @@
           <div class="row">
             <div class="col-4">[Logo]</div>
             <div class="col-4">[Search bar]</div>
-            <div class="col-4">[C F]</div>
+            <div class="col-4">[<a href="#">C</a> <a href="#">F</a>]</div>
           </div>
         </nav>
         <main>
-          <h1>Sydney</h1>
-          <ul>
-            <li>Last updated: 16:45</li>
-            <li>Wednesday, 28 October 2020</li>
-          </ul>
-
+          <div class="overview">
+            <h1>Sydney</h1>
+            <ul>
+              <li>Last updated: 16:45</li>
+              <li>Wednesday, 28 October 2020</li>
+            </ul>
+          </div>
           <div class="row">
-            <div class="col-4">12°C</div>
+            <div class="col-4 weather-temperature">12°C</div>
             <div class="col-4">[Image]</div>
             <div class="col-4">
               <ul>
@@ -44,47 +49,78 @@
               </ul>
             </div>
           </div>
-          <div class="row">
+          <div class="row description">
             <div class="col-12">Few clouds</div>
           </div>
           <!--<div class="row weather-forecast" id="forecast"></div>-->
-          <div class="row">
+          <div class="row weather-forecast">
             <div class="col-2">
               <p>image</p>
-              <p>16:00</p>
-              <p>13°</p>
+              <ul>
+                <li>16:00</li>
+              </ul>
+              <ul>
+                <li>13°</li>
+              </ul>
             </div>
             <div class="col-2">
               <p>image</p>
-              <p>16:00</p>
-              <p>13°</p>
+              <ul>
+                <li>16:00</li>
+              </ul>
+              <ul>
+                <li>13°</li>
+              </ul>
             </div>
             <div class="col-2">
               <p>image</p>
-              <p>16:00</p>
-              <p>13°</p>
+              <ul>
+                <li>16:00</li>
+              </ul>
+              <ul>
+                <li>13°</li>
+              </ul>
             </div>
             <div class="col-2">
               <p>image</p>
-              <p>16:00</p>
-              <p>13°</p>
+              <ul>
+                <li>16:00</li>
+              </ul>
+              <ul>
+                <li>13°</li>
+              </ul>
             </div>
             <div class="col-2">
               <p>image</p>
-              <p>16:00</p>
-              <p>13°</p>
+              <ul>
+                <li>16:00</li>
+              </ul>
+              <ul>
+                <li>13°</li>
+              </ul>
+            </div>
+            <div class="col-2">
+              <p>image</p>
+              <ul>
+                <li>16:00</li>
+              </ul>
+              <ul>
+                <li>13°</li>
+              </ul>
             </div>
           </div>
         </main>
+        <footer>
+          <small
+            >2020 Made by Sanne P. Code on
+            <a
+              href="https://github.com/sannepetersvirtualgraphicdesigner/vanilla-weather-app"
+              target="_blank"
+              >GitHub</a
+            ></small
+          >
+        </footer>
       </div>
-      <small
-        >2020 Made by Sanne P. Code on
-        <a
-          href="https://github.com/sannepetersvirtualgraphicdesigner/vanilla-weather-app"
-          target="_blank"
-          >GitHub</a
-        ></small
-      >
     </div>
     <script src="src/app.js"></script>
   </body>
