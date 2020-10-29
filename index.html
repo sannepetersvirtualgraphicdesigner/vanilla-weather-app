@@ -13,6 +13,7 @@
       href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap"
       rel="stylesheet"
     />
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <link rel="stylesheet" href="src/style.css" />
     <title>Vanilla Weather App</title>
   </head>
@@ -23,34 +24,38 @@
           <div class="row">
             <div class="col-4">[Logo]</div>
             <div class="col-4">[Search bar]</div>
-            <div class="col-4">[<a href="#">C</a> <a href="#">F</a>]</div>
+            <div class="col-4">
+              [<a href="#">C/F</a>] [<a href="#">D/L</a>] [<a href="#">CUR</a>]
+            </div>
           </div>
         </nav>
         <main>
           <div class="overview">
-            <h1>Sydney</h1>
+            <h1 id="city"></h1>
             <ul>
               <li>Last updated: 16:45</li>
               <li>Wednesday, 28 October 2020</li>
             </ul>
           </div>
           <div class="row">
-            <div class="col-4 weather-temperature">12°C</div>
+            <div class="col-4 weather-temperature">
+              <span id="temperature"></span>°C
+            </div>
             <div class="col-4">[Image]</div>
-            <div class="col-4">
+            <div class="col-4 temp-parameters">
               <ul>
-                <li>Feels like</li>
+                <li>Feels like: <span id="feels"></span>°</li>
               </ul>
               <ul>
-                <li>Humidity</li>
+                <li>Humidity: <span id="humidity"></span> %</li>
               </ul>
               <ul>
-                <li>Wind speed</li>
+                <li>Wind speed: <span id="wind"></span> km/h</li>
               </ul>
             </div>
           </div>
           <div class="row description">
-            <div class="col-12">Few clouds</div>
+            <div class="col-12" id="description"></div>
           </div>
           <!--<div class="row weather-forecast" id="forecast"></div>-->
           <div class="row weather-forecast">
