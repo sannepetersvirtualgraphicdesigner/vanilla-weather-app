@@ -36,6 +36,14 @@ div:first-letter {
 .weather-temperature {
   font-size: 2em;
   font-weight: 700;
+  padding: 60px 0;
+  text-align: right;
+  color: yellow;
+}
+.main-icon {
+  width: 200px;
+  display: block;
+  margin: 0 auto;
 }
 /* Lists */
 .date-time {
@@ -44,6 +52,7 @@ div:first-letter {
 .temp-parameters {
   text-align: left;
   color: blue;
+  padding: 60px 0;
 }
 .weather-forecast {
   margin-bottom: 20px;
