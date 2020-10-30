@@ -87,7 +87,8 @@ function displayTemperature(response) {
 }
 
 let apiKey = "49de83b21739a14df5a0bd8a22f30861";
-let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=Sydney&appid=${apiKey}&units=metric`;
+let city = "Meerlo";
+let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
 
 console.log(apiUrl);
 axios.get(apiUrl).then(displayTemperature);
