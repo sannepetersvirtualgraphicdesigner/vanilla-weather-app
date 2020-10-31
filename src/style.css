@@ -58,6 +58,14 @@ div:first-letter {
   margin-bottom: 20px;
   color: red;
 }
+/* celsius and fahrenheit */
+.active {
+  color: #465866;
+  cursor: default;
+}
+.active:hover {
+  text-decoration: none;
+}
 /* Form */
 .header {
   width: 100%;
