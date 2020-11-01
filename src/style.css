@@ -1,12 +1,15 @@
 nav,
-main,
-footer {
+main {
   text-align: center;
   margin: 0px auto;
 }
+footer {
+  text-align: center;
+  margin: 20px auto 0;
+}
 body {
   font-family: "Montserrat", sans-serif;
-  color: #465866;
+  color: #100e0e;
 }
 h1 {
   margin-top: 20px;
@@ -41,21 +44,21 @@ button {
 .form-control {
   height: 50px;
   border-radius: 50px;
-  border: 0.5px solid green;
+  border: 0.5px solid #ffffff;
   flex-grow: 2;
   padding: 0;
 }
 .search-icon {
   font-size: 1rem;
   position: relative;
-  color: #465866;
+  color: #100e0e;
 }
 .header {
   width: 100%;
   justify-content: center;
 }
 .active {
-  color: #465866;
+  color: #100e0e;
   cursor: default;
 }
 .active:hover {
@@ -68,7 +71,14 @@ button {
 .overview {
   margin-bottom: 20px;
 }
+.date-text {
+  color: #8f8f8f;
+}
 .description {
+  font-size: 150%;
+  margin-top: 5px;
+}
+.col-12 {
   margin-bottom: 20px;
 }
 .weather-temperature {
@@ -94,24 +104,32 @@ button {
 }
 #icon {
   font-size: 170px;
-  opacity: 70%;
+  opacity: 100%;
   transition: all 150ms ease-in-out;
+  color: #f638dc;
 }
 #icon:hover {
-  opacity: 100%;
+  opacity: 70%;
 }
 .temp-parameters {
   text-align: left;
   padding: 60px 0;
 }
+.forecast-degrees strong {
+  color: #8f8f8f;
+}
 i.forecast-icon {
   font-size: 60px;
-  opacity: 70%;
+  opacity: 100%;
   transition: all 150ms ease-in-out;
+  color: #f638dc;
 }
 i.forecast-icon:hover {
-  opacity: 100%;
+  opacity: 70%;
 }
 .weather-forecast {
-  margin-bottom: 20px;
+  margin-top: 20px;
+}
+a {
+  color: #f638dc;
 }

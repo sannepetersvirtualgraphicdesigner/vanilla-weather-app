@@ -135,7 +135,9 @@ function displayForecast(response) {
               <p>
                 <i class = "forecast-icon wi wi-owm-${daytime}-${forecastIconId}" /></i>
               </p>
-          <div class="forecast-time">${formatTime(forecastTimestamp)}</div>
+          <div class="forecast-time"><strong>${formatTime(
+            forecastTimestamp
+          )}</strong></div>
           <div><span class="forecast-degrees">${Math.round(
             forecastDegrees
           )}</span><strong>°</strong></div>`;
