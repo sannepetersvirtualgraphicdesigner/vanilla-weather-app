@@ -79,13 +79,14 @@ function displayTemperature(response) {
   let timestamp = getTargetTimestamp(null, response.data.timezone);
 
   celsiusTemperature = response.data.main.temp;
-
   temperatureElement.innerHTML = Math.round(celsiusTemperature);
+
   cityElement.innerHTML = response.data.name;
   descriptionElement.innerHTML = response.data.weather[0].description;
   humidityElement.innerHTML = response.data.main.humidity;
   windElement.innerHTML = response.data.wind.speed;
   feelsElement.innerHTML = Math.round(response.data.main.feels_like);
+
   dateElement.innerHTML = formatDate(timestamp);
   timeElement.innerHTML = formatTime(timestamp);
 
@@ -115,27 +116,6 @@ function displayForecast(response) {
   forecastElement.innerHTML = null;
   let forecast = null;
 
-  /*for (let index = 0; index < 6; index++) {
-    forecast = response.data.list[index];
-    forecastElement.innerHTML += `
-    <div class="col-2">
-      <img src="http://openweathermap.org/img/wn/${
-        forecast.weather[0].icon
-      }@2x.png" alt="" />
-      <ul>
-        <li>${formatTime(forecast.dt * 1000)}</li>
-      </ul>
-      <ul>
-      <div class="weather-forecast-temperature">
-        <li><strong>${Math.round(
-          forecast.main.temp_max
-        )} </strong>| ${Math.round(forecast.main.temp_min)}°</li>
-      </div>
-      </ul>
-    </div>
-  `;
-  }
-}*/
   for (let i = 0; i < 5; i++) {
     let forecastDegrees = response.data.list[i].main.temp;
     let forecastIconId = response.data.list[i].weather[0].id;
