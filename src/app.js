@@ -75,7 +75,7 @@ function displayTemperature(response) {
   let dateElement = document.querySelector("#date");
   let timeElement = document.querySelector("#time");
   let timestamp = getTargetTimestamp(null, response.data.timezone);
-  let iconElement = document.querySelector("#icon");
+  //let iconElement = document.querySelector("#icon");
 
   celsiusTemperature = response.data.main.temp;
 
@@ -87,19 +87,35 @@ function displayTemperature(response) {
   feelsElement.innerHTML = Math.round(response.data.main.feels_like);
   dateElement.innerHTML = formatDate(timestamp);
   timeElement.innerHTML = formatTime(timestamp);
-  iconElement.setAttribute(
+  /*iconElement.setAttribute(
     "src",
     `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
-  );
-  iconElement.setAttribute("alt", response.data.weather[0].description);
+  );*/
+  //iconElement.setAttribute("alt", response.data.weather[0].description);
+  let iconId = response.data.weather[0].id;
+  setIcon(timestamp, iconId);
 }
+// CURRENT WEATHER ICON =======================================================
+function setIcon(timestamp, iconId) {
+  let iconElement = document.querySelector("#icon");
+  let now = new Date(timestamp);
+  let hours = now.getHours();
+  let daytime = "";
 
+  if (hours >= 5 && hours < 18) {
+    daytime = "day";
+  } else {
+    daytime = "night";
+  }
+
+  iconElement.setAttribute("class", `wi wi-owm-${daytime}-${iconId}`);
+}
 function displayForecast(response) {
   let forecastElement = document.querySelector("#forecast");
   forecastElement.innerHTML = null;
   let forecast = null;
 
-  for (let index = 0; index < 6; index++) {
+  /*for (let index = 0; index < 6; index++) {
     forecast = response.data.list[index];
     forecastElement.innerHTML += `
     <div class="col-2">
@@ -119,14 +135,44 @@ function displayForecast(response) {
     </div>
   `;
   }
-}
+}*/
+  for (let i = 0; i < 5; i++) {
+    let forecastDegrees = response.data.list[i].main.temp;
+    let forecastIconId = response.data.list[i].weather[0].id;
+    let forecastTimestamp = getTargetTimestamp(
+      response.data.list[i].dt,
+      response.data.city.timezone
+    );
+    let now = new Date(forecastTimestamp);
+    let hours = now.getHours();
+    let daytime = "";
+    if (hours >= 5 && hours < 18) {
+      daytime = "day";
+    } else {
+      daytime = "night";
+    }
 
+    forecastElement.innerHTML += `<div class="col">
+              <p>
+                <i class = "forecast-icon wi wi-owm-${daytime}-${forecastIconId}" /></i>
+              </p>
+          <div class="forecast-time">${formatTime(forecastTimestamp)}</div>
+          <div><span class="forecast-degrees">${Math.round(
+            forecastDegrees
+          )}</span><strong>°</strong></div>`;
+  }
+}
+function errorFunction(error) {
+  alert(
+    "Whoops! The location you've entered does not exist. Please try again."
+  );
+}
+//weatherApi
 function search(city) {
   let apiKey = "49de83b21739a14df5a0bd8a22f30861";
-  let apiBeginpoint = "https://api.openweathermap.org/data/2.5/weather";
-  let apiUrl = `${apiBeginpoint}?q=${city}&appid=${apiKey}&units=metric`;
-  axios.get(apiUrl).then(displayTemperature);
-
+  let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
+  axios.get(apiUrl).then(displayTemperature).catch(errorFunction);
+  //forecastApi
   apiUrl = `https://api.openweathermap.org/data/2.5/forecast?q=${city}&appid=${apiKey}&units=metric`;
   axios.get(apiUrl).then(displayForecast);
 }
@@ -165,6 +211,7 @@ function retrievePosition(position) {
 
   axios.get(apiUrl).then(displayTemperature);
 }
+
 //Locate after current location button is clicked
 function getPosition(event) {
   event.preventDefault();
@@ -186,4 +233,5 @@ fahrenheitLink.addEventListener("click", displayFahrenheitTemperature);
 let celsiusLink = document.querySelector("#celsius-link");
 celsiusLink.addEventListener("click", displayCelsiusTemperature);
 
+// Display the weather for Sydney on page load
 search("Sydney");
