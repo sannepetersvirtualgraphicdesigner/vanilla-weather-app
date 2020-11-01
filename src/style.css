@@ -23,6 +23,40 @@ li {
 div:first-letter {
   text-transform: capitalize;
 }
+/* Form */
+form {
+  margin-top: 0;
+  display: block;
+}
+button {
+  left: 35%;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  position: relative;
+}
+.form-control {
+  max-width: 700px;
+  height: 50px;
+  border-radius: 50px;
+  border: 0.5px solid green;
+}
+.fas {
+  font-size: 1rem;
+}
+.header {
+  width: 100%;
+  justify-content: center;
+}
+
+/* celsius and fahrenheit */
+.active {
+  color: #465866;
+  cursor: default;
+}
+.active:hover {
+  text-decoration: none;
+}
 .weather-app {
   max-width: 1280px;
   margin: 30px auto;
@@ -38,34 +72,12 @@ div:first-letter {
   font-weight: 700;
   padding: 60px 0;
   text-align: right;
-  color: yellow;
-}
-/*.main-icon {
-  width: 200px;
-  display: block;
-  margin: 0 auto;
-
-}
-.wi {
-  display: inline-block;
-  font-family: weathericons;
-  font-style: normal;
-  font-weight: 400;
-  line-height: 1;
-}*/
-#icon {
-  font-size: 170px;
-  opacity: 70%;
-  transition: all 150ms ease-in-out;
-}
-#icon:hover {
-  opacity: 100%;
 }
 #city-input {
   border: 1px solid rgb(17, 17, 17, 0.1);
   border-radius: 30px;
   background: #e6dedd;
-  margin-top: 15px;
+  margin-top: 0;
   max-width: 100%;
   opacity: 50%;
   padding: 20px 20px;
@@ -76,6 +88,18 @@ div:first-letter {
   border: 1px solid rgb(17, 17, 17, 0.1);
   opacity: 90%;
 }
+#icon {
+  font-size: 170px;
+  opacity: 70%;
+  transition: all 150ms ease-in-out;
+}
+#icon:hover {
+  opacity: 100%;
+}
+.temp-parameters {
+  text-align: left;
+  padding: 60px 0;
+}
 i.forecast-icon {
   font-size: 60px;
   opacity: 70%;
@@ -85,63 +109,6 @@ i.forecast-icon {
 i.forecast-icon:hover {
   opacity: 100%;
 }
-/* Lists */
-.date-time {
-  color: green;
-}
-.temp-parameters {
-  text-align: left;
-  color: blue;
-  padding: 60px 0;
-}
 .weather-forecast {
   margin-bottom: 20px;
-  color: red;
-}
-/* celsius and fahrenheit */
-.active {
-  color: #465866;
-  cursor: default;
-}
-.active:hover {
-  text-decoration: none;
-}
-/* Form */
-.header {
-  width: 100%;
-  justify-content: center;
-}
-form {
-  margin-top: 0;
-  display: block;
-}
-button {
-  left: 35%;
-  background-color: transparent;
-  border: none;
-  cursor: pointer;
-  position: relative;
-}
-
-.form-control {
-  max-width: 700px;
-  height: 50px;
-  border-radius: 50px;
-  border: 0.5px solid green;
-}
-.fas {
-  color: red;
-  font-size: 1rem;
-}
-/* weather forecast row */
-.weather-forecast img {
-  display: block;
-  margin: 0 auto;
-  height: 48px;
-  width: 48px;
-}
-.weather-forecast-temperature {
-  text-align: center;
-  height: auto;
-  white-space: nowrap;
 }
