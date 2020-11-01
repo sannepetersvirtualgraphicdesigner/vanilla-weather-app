@@ -99,7 +99,7 @@ function displayForecast(response) {
   forecastElement.innerHTML = null;
   let forecast = null;
 
-  for (let index = 0; index < 5; index++) {
+  for (let index = 0; index < 6; index++) {
     forecast = response.data.list[index];
     forecastElement.innerHTML += `
     <div class="col-2">
@@ -123,7 +123,8 @@ function displayForecast(response) {
 
 function search(city) {
   let apiKey = "49de83b21739a14df5a0bd8a22f30861";
-  let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
+  let apiBeginpoint = "https://api.openweathermap.org/data/2.5/weather";
+  let apiUrl = `${apiBeginpoint}?q=${city}&appid=${apiKey}&units=metric`;
   axios.get(apiUrl).then(displayTemperature);
 
   apiUrl = `https://api.openweathermap.org/data/2.5/forecast?q=${city}&appid=${apiKey}&units=metric`;
@@ -154,7 +155,26 @@ function displayCelsiusTemperature(event) {
   temperatureElement.innerHTML = Math.round(celsiusTemperature);
 }
 
+// Geolocation currentLocation
+function retrievePosition(position) {
+  let apiKey = "49de83b21739a14df5a0bd8a22f30861";
+  let lat = position.coords.latitude;
+  let lon = position.coords.longitude;
+  let apiBeginpoint = "https://api.openweathermap.org/data/2.5/weather";
+  let apiUrl = `${apiBeginpoint}?lat=${lat}&lon=${lon}&units=metric&appid=${apiKey}`;
+
+  axios.get(apiUrl).then(displayTemperature);
+}
+//Locate after current location button is clicked
+function getPosition(event) {
+  event.preventDefault();
+  navigator.geolocation.getCurrentPosition(retrievePosition);
+}
+
 //Global variables
+let currentlocationButton = document.querySelector("#current");
+currentlocationButton.addEventListener("click", getPosition);
+
 let celsiusTemperature = null;
 
 let form = document.querySelector("#search-form");
