@@ -41,6 +41,7 @@ button {
 .logo {
   width: 200px;
   margin-top: 5px;
+  cursor: pointer;
 }
 .form-control {
   height: 50px;
