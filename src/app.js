@@ -173,6 +173,7 @@ function displayFahrenheitTemperature(event) {
   fahrenheitLink.classList.add("active");
   let fahrenheitTemperature = (celsiusTemperature * 9) / 5 + 32;
   temperatureElement.innerHTML = Math.round(fahrenheitTemperature);
+
   let forecastItems = document.querySelectorAll(".forecast-degrees");
   forecastItems.forEach(function (item) {
     // grabbing the current value to convert
@@ -187,6 +188,7 @@ function displayCelsiusTemperature(event) {
   fahrenheitLink.classList.remove("active");
   let temperatureElement = document.querySelector("#temperature");
   temperatureElement.innerHTML = Math.round(celsiusTemperature);
+
   let forecastItems = document.querySelectorAll(".forecast-degrees");
   forecastItems.forEach(function (item) {
     // grabbing the current value to convert

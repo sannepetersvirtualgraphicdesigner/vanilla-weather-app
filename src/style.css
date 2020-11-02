@@ -40,6 +40,7 @@ button {
 }
 .logo {
   width: 200px;
+  margin-top: 5px;
 }
 .form-control {
   height: 50px;
@@ -57,6 +58,9 @@ button {
   width: 100%;
   justify-content: center;
 }
+a {
+  color: #f638dc;
+}
 .active {
   color: #100e0e;
   cursor: default;
@@ -69,7 +73,7 @@ button {
   margin: 30px auto;
 }
 .overview {
-  margin-bottom: 20px;
+  margin-bottom: 30px;
 }
 .date-text {
   color: #8f8f8f;
@@ -130,6 +134,16 @@ i.forecast-icon:hover {
 .weather-forecast {
   margin-top: 20px;
 }
-a {
+.fa-map-marker-alt {
+  border: 1px solid #f638dc;
+  border-radius: 50%;
   color: #f638dc;
+  font-size: 25px;
+  width: 50px;
+  height: 50px;
+  padding-top: 10px;
+  margin-left: 20px;
+}
+.fa-map-marker-alt:hover {
+  opacity: 70%;
 }
